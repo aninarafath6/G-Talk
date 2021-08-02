@@ -6,14 +6,15 @@ class ChatModel {
   final String avatarUrl;
   final int unReadMessageCount;
   final bool online;
+  final bool isTyping;
 
-  ChatModel({
-    required this.firstName,
-    this.lastName: '',
-    required this.currentMessage,
-    required this.time,
-    this.avatarUrl: '',
-    this.unReadMessageCount: 0,
-    this.online: false,
-  });
+  ChatModel(
+      {required this.firstName,
+      this.lastName: '',
+      required this.currentMessage,
+      required this.time,
+      this.avatarUrl: '',
+      this.unReadMessageCount: 0,
+      this.online: false,
+      this.isTyping: false});
 }

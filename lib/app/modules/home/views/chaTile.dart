@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:g_talk/app/constants/app_colors.dart';
+import 'package:g_talk/app/modules/chatPage/views/chat_page_view.dart';
 import 'package:g_talk/app/modules/home/models/chat_model.dart';
+import 'package:g_talk/app/routes/app_pages.dart';
 import 'package:g_talk/app/widgets/userAvatar_widget.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,6 +17,7 @@ class ChatTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+        Get.toNamed(Routes.CHAT_PAGE, arguments: chat);
         // Get.to(ChatPage());
       },
       splashColor: AppColors.BACKGROUND_COLOR,
@@ -52,10 +55,12 @@ class ChatTile extends StatelessWidget {
           ),
         ),
         subtitle: Text(
-          chat.currentMessage,
+          chat.isTyping ? 'Typing...' : chat.currentMessage,
           overflow: TextOverflow.ellipsis,
           style: GoogleFonts.publicSans(
-            color: AppColors.SECONDERY_TEXT_COLOR,
+            color: chat.isTyping
+                ? AppColors.SUCCESS_COLOR
+                : AppColors.SECONDERY_TEXT_COLOR,
             fontSize: 14,
           ),
         ),

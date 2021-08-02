@@ -36,6 +36,7 @@ class ChatController extends GetxController {
         currentMessage: 'Next Month',
         time: '01:44',
         online: true,
+        isTyping: true,
       ),
       ChatModel(
         firstName: 'Muhammad',
