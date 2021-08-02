@@ -9,5 +9,8 @@ class AppColors {
   static final Color SOFT_DANGER_COLOR = Color(0xFFFBC8D4);
   static final Color SECONDERY_TEXT_COLOR = Color(0xFF7A7F9A);
   static final Color INDIGO_COLOR = Color(0xFF7269EF);
-  static final Color GREY_COLOR = Color(0xFF878a92);
+  static final Color GREY_COLOR = Color(0xFF878a92); 
+  static final Color  LIGHT_BACKROUND_COLOR = Color(0xFFd1ceff);
+  static final Color SCAFFOLD_COLOR = Color(0xfff5f7fb);
+
 }

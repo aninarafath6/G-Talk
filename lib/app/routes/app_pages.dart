@@ -1,8 +1,7 @@
 import 'package:g_talk/app/modules/home/views/pages/home/home_view.dart';
 import 'package:get/get.dart';
 
-import 'package:g_talk/app/modules/home/bindings/home_binding.dart';
-
+// import 'package:g_talk/app/modules/home/bindings/home_binding.dart';
 
 part 'app_routes.dart';
 
@@ -14,7 +13,7 @@ class AppPages {
     GetPage(
       name: _Paths.HOME,
       page: () => HomeView(),
-      binding: HomeBinding(),
+      // binding: HomeBinding(),
     ),
   ];
 }
