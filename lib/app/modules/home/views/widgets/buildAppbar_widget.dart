@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:g_talk/app/constants/app_colors.dart';
 import 'package:g_talk/app/constants/app_sizes.dart';
+import 'package:g_talk/app/modules/home/views/widgets/userAvatar_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 AppBar buildAppbar(double screenwidth) {
@@ -57,5 +58,15 @@ AppBar buildAppbar(double screenwidth) {
         ),
       ),
     ),
+    actions: [
+      Padding(
+        padding: const EdgeInsets.only(right: 15),
+        child: UserAvatar(
+          name: 'anin',
+          avatarUrl: 'https://avatars.githubusercontent.com/u/65447144?v=4',
+          radius: 18,
+        ),
+      ),
+    ],
   );
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:g_talk/app/constants/app_colors.dart';
 import 'package:g_talk/app/modules/home/models/chat_model.dart';
+import 'package:g_talk/app/modules/home/views/widgets/userAvatar_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ChatTile extends StatelessWidget {
@@ -14,39 +15,7 @@ class ChatTile extends StatelessWidget {
     return ListTile(
       leading: Stack(
         children: [
-          Container(
-            height: 45,
-            width: 45,
-            decoration: BoxDecoration(
-              color: AppColors.LIGHT_BACKROUND_COLOR,
-              shape: BoxShape.circle,
-            ),
-            child: Stack(
-              children: [
-                Center(
-                  child: Text(
-                    chat.firstName.split('')[0],
-                    style: GoogleFonts.publicSans(
-                      color: AppColors.INDIGO_COLOR,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 15,
-                    ),
-                  ),
-                ),
-                chat.avatarUrl != ''
-                    ? Center(
-                        child: CircleAvatar(
-                          backgroundColor: Colors.transparent,
-                          backgroundImage: NetworkImage(
-                            chat.avatarUrl,
-                          ),
-                          radius: 25,
-                        ),
-                      )
-                    : SizedBox(),
-              ],
-            ),
-          ),
+          UserAvatar(name: chat.firstName, avatarUrl: chat.avatarUrl),
           chat.online
               ? Positioned(
                   bottom: 1,
