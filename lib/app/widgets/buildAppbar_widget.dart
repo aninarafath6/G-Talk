@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:g_talk/app/constants/app_colors.dart';
 import 'package:g_talk/app/constants/app_sizes.dart';
-import 'package:g_talk/app/modules/home/views/widgets/userAvatar_widget.dart';
+import 'package:g_talk/app/widgets/userAvatar_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 AppBar buildAppbar(double screenwidth) {

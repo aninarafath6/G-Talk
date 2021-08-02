@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:g_talk/app/modules/home/controllers/chat_controller.dart';
-import 'package:g_talk/app/modules/home/views/pages/home/chaTile.dart';
+import 'package:g_talk/app/modules/home/views/chaTile.dart';
 import 'package:get/get.dart';
 
 // ignore: must_be_immutable
