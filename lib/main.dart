@@ -14,8 +14,8 @@ void main() {
       theme: ThemeData(
         textTheme: GoogleFonts.publicSansTextTheme(),
         scaffoldBackgroundColor: AppColors.SCAFFOLD_COLOR,
+        accentColor: AppColors.BACKGROUND_COLOR,
       ),
     ),
   );
 }
-       
