@@ -11,11 +11,21 @@ class ChatPageView extends GetView<ChatPageController> {
       resizeToAvoidBottomInset: true,
       appBar: chatPageAppbar(),
       body: Center(
-        child: Stack(
-          children: [
-            ListView(),
-            BottomMessagbar(),
-          ],
+        child: WillPopScope(
+          onWillPop: () {
+            if (controller.showPicker.value) {
+              controller.showPicker.value = false;
+            } else {
+              Get.back();
+            }
+            return Future.value(false);
+          },
+          child: Stack(
+            children: [
+              ListView(),
+              BottomMessagbar(),
+            ],
+          ),
         ),
       ),
     );

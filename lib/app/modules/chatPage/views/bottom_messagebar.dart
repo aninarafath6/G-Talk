@@ -56,6 +56,7 @@ class BottomMessagbar extends StatelessWidget {
                         child: TextField(
                           controller:chatController.messageController.value,
                           focusNode: chatController.focusNode.value,
+                          style:GoogleFonts.publicSans(color:AppColors.TEXT_COLOR),
                           keyboardType: TextInputType.multiline,
                           maxLines: 5,
                           minLines: 1,

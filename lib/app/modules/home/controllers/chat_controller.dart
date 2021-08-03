@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:g_talk/app/modules/home/models/chat_model.dart';
+import 'package:g_talk/app/models/chat_model.dart';
 import 'package:get/get.dart';
 
 class ChatController extends GetxController {

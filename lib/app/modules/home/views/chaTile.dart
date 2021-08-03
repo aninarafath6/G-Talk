@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:g_talk/app/constants/app_colors.dart';
-import 'package:g_talk/app/modules/home/models/chat_model.dart';
+import 'package:g_talk/app/models/chat_model.dart';
 import 'package:g_talk/app/routes/app_pages.dart';
 import 'package:g_talk/app/widgets/userAvatar_widget.dart';
 import 'package:get/get.dart';
