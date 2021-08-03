@@ -1,20 +1,27 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ChatPageController extends GetxController {
-  //TODO: Implement ChatPageController
-
-  final count = 0.obs;
+  final showPicker = false.obs;
+  final focusNode = FocusNode().obs;
+  final messageController = TextEditingController().obs;
   @override
   void onInit() {
+    focusNode.value.addListener(
+      () {
+        if (focusNode.value.hasFocus) {
+          showPicker.value = false;
+        }
+      },
+    );
     super.onInit();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  void togglePicker() {
+    if (showPicker.value) {
+      showPicker.value = false;
+    } else {
+      showPicker.value = true;
+    }
   }
-
-  @override
-  void onClose() {}
-  void increment() => count.value++;
 }

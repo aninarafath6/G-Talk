@@ -8,6 +8,7 @@ class ChatPageView extends GetView<ChatPageController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: chatPageAppbar(),
       body: Center(
         child: Stack(

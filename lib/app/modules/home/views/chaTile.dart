@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:g_talk/app/constants/app_colors.dart';
-import 'package:g_talk/app/modules/chatPage/views/chat_page_view.dart';
 import 'package:g_talk/app/modules/home/models/chat_model.dart';
 import 'package:g_talk/app/routes/app_pages.dart';
 import 'package:g_talk/app/widgets/userAvatar_widget.dart';
@@ -18,7 +17,6 @@ class ChatTile extends StatelessWidget {
     return InkWell(
       onTap: () {
         Get.toNamed(Routes.CHAT_PAGE, arguments: chat);
-        // Get.to(ChatPage());
       },
       splashColor: AppColors.BACKGROUND_COLOR,
       highlightColor: AppColors.BACKGROUND_COLOR,

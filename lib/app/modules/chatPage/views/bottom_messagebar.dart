@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:g_talk/app/constants/app_colors.dart';
 import 'package:g_talk/app/constants/app_sizes.dart';
+import 'package:g_talk/app/modules/chatPage/controllers/chat_page_controller.dart';
 import 'package:g_talk/app/widgets/emojie_picker.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+// ignore: must_be_immutable
 class BottomMessagbar extends StatelessWidget {
-  const BottomMessagbar({
+  ChatPageController chatController = Get.find();
+  BottomMessagbar({
     Key? key,
   }) : super(key: key);
 
@@ -36,7 +40,12 @@ class BottomMessagbar extends StatelessWidget {
                       Material(
                         color: Colors.transparent,
                         child: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            chatController.focusNode.value.unfocus();
+                            chatController.focusNode.value.canRequestFocus =
+                                true;
+                            chatController.togglePicker();
+                          },
                           icon: Icon(
                             Icons.emoji_emotions,
                             color: AppColors.SECONDERY_TEXT_COLOR,
@@ -45,6 +54,8 @@ class BottomMessagbar extends StatelessWidget {
                       ),
                       Expanded(
                         child: TextField(
+                          controller:chatController.messageController.value,
+                          focusNode: chatController.focusNode.value,
                           keyboardType: TextInputType.multiline,
                           maxLines: 5,
                           minLines: 1,
@@ -97,7 +108,13 @@ class BottomMessagbar extends StatelessWidget {
               ],
             ),
           ),
-          EmojiePicker()
+          Obx(
+            () {
+              return chatController.showPicker.value
+                  ? EmojiePicker()
+                  : SizedBox();
+            },
+          ),
         ],
       ),
     );
