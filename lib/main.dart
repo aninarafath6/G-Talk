@@ -9,6 +9,7 @@ void main() {
     GetMaterialApp(
       title: "E-Talk",
       initialRoute: AppPages.INITIAL,
+      
       getPages: AppPages.routes,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

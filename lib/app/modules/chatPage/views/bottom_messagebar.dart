@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:g_talk/app/constants/app_colors.dart';
 import 'package:g_talk/app/constants/app_sizes.dart';
+import 'package:g_talk/app/models/message_model.dart';
 import 'package:g_talk/app/modules/chatPage/controllers/chat_page_controller.dart';
 import 'package:g_talk/app/widgets/emojie_picker.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 // ignore: must_be_immutable
-class BottomMessagbar extends StatelessWidget {
-  ChatPageController chatController = Get.find();
+class BottomMessagbar extends StatefulWidget {
   BottomMessagbar({
     Key? key,
   }) : super(key: key);
+
+  @override
+  _BottomMessagbarState createState() => _BottomMessagbarState();
+}
+
+class _BottomMessagbarState extends State<BottomMessagbar> {
+  ChatPageController chatController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -54,9 +61,10 @@ class BottomMessagbar extends StatelessWidget {
                       ),
                       Expanded(
                         child: TextField(
-                          controller:chatController.messageController.value,
+                          controller: chatController.messageController.value,
                           focusNode: chatController.focusNode.value,
-                          style:GoogleFonts.publicSans(color:AppColors.TEXT_COLOR),
+                          style: GoogleFonts.publicSans(
+                              color: AppColors.TEXT_COLOR),
                           keyboardType: TextInputType.multiline,
                           maxLines: 5,
                           minLines: 1,
@@ -90,22 +98,51 @@ class BottomMessagbar extends StatelessWidget {
                     ],
                   ),
                 ),
-                Container(
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                    color: AppColors.INDIGO_COLOR,
-                    borderRadius: BorderRadius.circular(
-                      AppSizes.BORDER_RADIUS,
+                InkWell(
+                  onTap: () {},
+                  child: Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      color: AppColors.INDIGO_COLOR,
+                      borderRadius: BorderRadius.circular(
+                        AppSizes.BORDER_RADIUS,
+                      ),
+                    ),
+                    child: Center(
+                      child: Obx(
+                        () => InkWell(
+                          onTap: () {
+                            if (chatController.isTextMessage.value) {
+                              chatController.focusNode.value.unfocus();
+                              chatController.showPicker.value = false;
+                              Get.arguments.messages.add(
+                                MessageModel(
+                                  message: chatController
+                                      .messageController.value.text,
+                                  time: '010:20 pm',
+                                  isResiver: false,
+                                ),
+                              );
+                              chatController.scrollController.value.animateTo(
+                                chatController.scrollController.value.position
+                                    .maxScrollExtent,
+                                curve: Curves.easeOut,
+                                duration: const Duration(milliseconds: 300),
+                              );
+                            }
+                          },
+                          child: Icon(
+                            chatController.isTextMessage.value
+                                ? Icons.send
+                                : Icons.mic,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
-                  child: Center(
-                    child: Icon(
-                      Icons.mic,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+                )
               ],
             ),
           ),

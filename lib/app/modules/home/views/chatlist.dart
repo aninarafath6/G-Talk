@@ -13,7 +13,6 @@ class ChatList extends GetView<ChatController> {
       margin: EdgeInsets.only(top: 20),
       child: Obx(
         () => ListView.separated(
-          
           itemBuilder: (context, index) {
             return ChatTile(
               chat: controller.chats[index],

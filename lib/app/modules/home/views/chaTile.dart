@@ -53,7 +53,7 @@ class ChatTile extends StatelessWidget {
           ),
         ),
         subtitle: Text(
-          chat.isTyping ? 'Typing...' : chat.currentMessage,
+          chat.isTyping ? 'Typing...' : chat.messages.last.message.toString(),
           overflow: TextOverflow.ellipsis,
           style: GoogleFonts.publicSans(
             color: chat.isTyping
